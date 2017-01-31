@@ -7,13 +7,8 @@ ORM::configure('username', 'root');
 ORM::configure('password', 'root');
 
 $donnees = ORM::for_table('mes_chaussettes')
-->where('couleur', 'rouge')
+->where_gt('pointure', '40')
 ->find_many();
-
-foreach ($donnees as $donnee) {
-	$donnee->couleur = 'rose';
-	$donnee->save();
-}
 
 ?>
 	<table>
@@ -28,7 +23,7 @@ foreach ($donnees as $donnee) {
 ?>
 		<tr>
 			<td><?= $donnee->id; ?></td>
-			<td><?= $donnee->couleur; ?></td>
+			<td><?= $donnee->pointure; ?></td>
 		</tr>
 <?php
 
