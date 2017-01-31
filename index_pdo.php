@@ -30,7 +30,7 @@ $reponse->execute(
 			<td>temp_lavage :</td>
 			<td>date_lavage :</td>
 		</tr>
-<?php while ($donnees = $reponse->fetch()) { ?>
+<?php while ($donnees = $reponse->fetch()) : ?>
 		<tr>
 			<td><?= $donnees['id']; ?></td>
 			<td><?= $donnees['couleur']; ?></td>
@@ -39,13 +39,11 @@ $reponse->execute(
 			<td><?= $donnees['temp_lavage']; ?></td>
 			<td><?= $donnees['date_lavage']; ?></td>
 		</tr>
-<?php
 
-}
+<?php endforeach;
 
-$reponse->closeCursor();
+$reponse->closeCursor(); ?>
 
-?>
 	</table>
 
 </body>
