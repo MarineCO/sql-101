@@ -12,9 +12,6 @@ $reponse->execute(
 		'pointure' => $_GET['pointure']
 	));
 
-$donnees = $reponse->fetch();
-
-
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
