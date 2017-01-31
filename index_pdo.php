@@ -4,7 +4,7 @@ $bdd = new PDO(
 	'mysql:host=localhost;dbname=mon_armoire;charset=utf8',
 	'root', 'root');
 
-$reponse = $bdd->query('SELECT * FROM mes_chaussettes');
+$reponse = $bdd->query('SELECT * FROM mes_chaussettes WHERE couleur="bleu" && pointure > 40');
 
 $donnees = $reponse->fetch();
 
@@ -24,8 +24,8 @@ $donnees = $reponse->fetch();
 			<td>couleur :</td>
 			<td>description :</td>
 			<td>pointure :</td>
-			<td>date_lavage :</td>
 			<td>temp_lavage :</td>
+			<td>date_lavage :</td>
 		</tr>
 <?php while ($donnees = $reponse->fetch()) { ?>
 		<tr>
@@ -33,8 +33,8 @@ $donnees = $reponse->fetch();
 			<td><?= $donnees['couleur']; ?></td>
 			<td><?= $donnees['description']; ?></td>
 			<td><?= $donnees['pointure']; ?></td>
-			<td><?= $donnees['date_lavage']; ?></td>
 			<td><?= $donnees['temp_lavage']; ?></td>
+			<td><?= $donnees['date_lavage']; ?></td>
 		</tr>
 <?php
 
