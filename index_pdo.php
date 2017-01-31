@@ -4,7 +4,13 @@ $bdd = new PDO(
 	'mysql:host=localhost;dbname=mon_armoire;charset=utf8',
 	'root', 'root');
 
-$reponse = $bdd->query('SELECT * FROM mes_chaussettes WHERE couleur="bleu" && pointure > 40');
+$reponse = $bdd->prepare('SELECT * FROM mes_chaussettes WHERE couleur = :couleur && pointure > :pointure');
+
+$reponse->execute(
+	array(
+		'couleur' => $_GET['couleur'],
+		'pointure' => $_GET['pointure']
+	));
 
 $donnees = $reponse->fetch();
 
@@ -13,7 +19,7 @@ $donnees = $reponse->fetch();
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Mini CRM</title>
+	<title>Exercice BDD</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
