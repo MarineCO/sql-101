@@ -10,6 +10,11 @@ $donnees = ORM::for_table('mes_chaussettes')
 ->where('couleur', 'rouge')
 ->find_many();
 
+foreach ($donnees as $donnee) {
+	$donnee->couleur = 'rose';
+	$donnee->save();
+}
+
 ?>
 	<table>
 		<tr>
